@@ -24,10 +24,12 @@ function App() {
               {
                 pizzas.map((pizza) => (
                   <PizzaBlock
-                    url={pizza.imageUrl}
+                    imageUrl={pizza.imageUrl}
                     title={pizza.title}
                     price={pizza.price}
                     sizes={pizza.sizes}
+                    types={pizza.types}
+                    // {...pizza}
                   />
                 ))
               }
