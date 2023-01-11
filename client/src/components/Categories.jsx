@@ -13,7 +13,8 @@ function Categories() {
       <ul>
         {categories.map((categ, index) => (
           <li
-          // todo в эту лишку надо добавить key и решить вопрос в 22 строке eslint
+          // todo решить вопрос в 22 строке eslint
+            key={index}
             className={activeIndex === index ? 'active' : ''}
             onClick={(() => onClickCategory(index))}
             onKeyDown={(() => onClickCategory(index))}

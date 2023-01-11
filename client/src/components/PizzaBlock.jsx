@@ -20,6 +20,7 @@ export default function PizzaBlock(props) {
         <ul>
           {props.types?.map((typeId) => (
             <li
+              key={typeId}
               className={typeActive === typeId ? 'active' : ''}
               onClick={() => setTypeActive(typeId)}
               onKeyDown={() => setTypeActive(typeId)}
@@ -32,8 +33,9 @@ export default function PizzaBlock(props) {
         </ul>
         <ul>
           {props.sizes?.map((size, index) => (
-            // todo в эту лишку надо добавить key и решить вопрос в 22 строке eslint
+            // todo решить вопрос в 22 строке eslint
             <li
+              key={index}
               className={sizeActive === index ? 'active' : ''}
               onClick={(() => setSizeActive(index))}
               onKeyDown={() => setSizeActive(index)}
