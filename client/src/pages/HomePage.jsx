@@ -12,10 +12,11 @@ export default function HomePage() {
   React.useEffect(() => {
     fetch('https://63bfd8b90cc56e5fb0e06c3d.mockapi.io/items')
       .then((data) => data.json())
-      .then((pizzas) => setTimeout(() => { setItemsOfPizza(pizzas); setIsLoading(false); }, 1000))
+      .then((pizzas) => { setItemsOfPizza(pizzas); setIsLoading(false); })
       .catch((error) => {
         console.error('Error:', error);
       });
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div className="container">
