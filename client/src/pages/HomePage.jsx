@@ -6,11 +6,18 @@ import PizzaBlock from '../components/PizzaBlock';
 import Skeleton from '../components/PizzaBlock/Skeleton';
 
 export default function HomePage() {
+// State from Categories component
+  const [categoryId, setCategoryId] = React.useState(0);
+
+  // State from Sort component
+  // const [sortType, setSortType] = React.useState(0);
+
+  // State from Home Page
   const [itemsOfPizza, setItemsOfPizza] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   // Fetch pizza
   React.useEffect(() => {
-    fetch('https://63bfd8b90cc56e5fb0e06c3d.mockapi.io/items')
+    fetch('https://63ce5a71fdfe2764c720818d.mockapi.io/items')
       .then((data) => data.json())
       .then((pizzas) => { setItemsOfPizza(pizzas); setIsLoading(false); })
       .catch((error) => {
@@ -21,7 +28,7 @@ export default function HomePage() {
   return (
     <div className="container">
       <div className="content__top">
-        <Categories />
+        <Categories value={categoryId} onClickCategory={(id) => setCategoryId(id)} />
         <Sort />
       </div>
       <h2 className="content__title">Все пиццы</h2>
